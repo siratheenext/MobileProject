@@ -3,23 +3,8 @@
 คำแนะนำการใช้งานสำหรับอาจารย์/ผู้ทดสอบโครงงานนี้เป็นระบบร้านค้า Flutter ที่เชื่อมต่อกับฐานข้อมูล MySQL ผ่าน Node.js Backend
 
 โครงสร้างโปรเจกต์
-📁 lib/                  ← โค้ด Flutter
-├── components/         ← UI component ต่าง ๆ
-├── models/             ← Model class เช่น product, cart
-├── pages/              ← หน้าจอทั้งหมด (login, home, cart, etc.)
-├── services/           ← ฟังก์ชัน service เช่น cart, API call
-├── firebase_options.dart (✅ ถ้าใช้ Firebase ให้เก็บไว้)
-├── main.dart           ← จุดเริ่มต้นแอป
+![image](https://github.com/user-attachments/assets/6c6ef8cc-a57c-43fb-8b1e-a8f4fa5bbd10)
 
-📁 node-backend/         ← โค้ดฝั่ง backend Node.js + Express
-├── server.js
-├── Database/           ← ไฟล์ SQL สำหรับ import ฐานข้อมูล
-│   ├── raknummallshop_customer.sql
-│   ├── raknummallshop_products.sql
-│   ├── raknummallshop_purchase_history.sql
-│   └── raknummallshop_reviews.sql
-
-📄 README.md
 
 ขั้นตอนการใช้งานหลังจาก Clone
 1. ติดตั้ง Flutter Dependencies
