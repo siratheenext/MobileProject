@@ -1,0 +1,100 @@
+name: project
+description: "A new Flutter project."
+publish_to: 'none' 
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.3.0
+  provider: ^6.1.0
+  # flutter_map: ^6.1.0
+  flutter_map: ^5.0.0
+  latlong2: ^0.9.0
+  geocoding: ^2.1.0
+  firebase_core: ^2.32.0
+  cloud_firestore: ^4.7.1
+
+
+  cupertino_icons: ^1.0.8
+  # google_maps_flutter: ^2.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+flutter:
+  assets:
+    - assets/images/profile_s.png
+    - assets/images/qr_me.png
+    - assets/images/login_p.png
+    - assets/images/Phone.png
+    - assets/images/line_app.png
+    - assets/images/fish.png
+    - assets/images/tiktok.png
+    - assets/images/Backg_log.png
+    - assets/images/BG_Home.png
+    - assets/images/Crash.png
+    - assets/images/weui_me-filled.png
+    - assets/images/mdi-light_bell.png
+    - assets/images/Home.png
+    - assets/images/b001.png
+    - assets/images/b002.png
+    - assets/images/b003.png
+    - assets/images/b004.png
+    - assets/images/b005.png
+    - assets/images/b006.png
+    - assets/images/b007.png
+    - assets/images/b008.png
+    - assets/images/b009.png
+    - assets/images/b010.png
+    - assets/images/r001.png
+    - assets/images/r002.png
+    - assets/images/r003.png
+    - assets/images/r004.png
+    - assets/images/r005.png
+    - assets/images/r006.png
+    - assets/images/r007.png
+    - assets/images/r008.png
+    - assets/images/r009.png
+    - assets/images/r010.png
+    - assets/images/h001.png
+    - assets/images/h002.png
+    - assets/images/h003.png
+    - assets/images/h004.png
+    - assets/images/h005.png
+    - assets/images/h006.png
+    - assets/images/h007.png
+    - assets/images/h008.png
+    - assets/images/h009.png
+    - assets/images/h010.png
+    - assets/images/p001.png
+    - assets/images/p002.png
+    - assets/images/p003.png
+    - assets/images/p004.png
+    - assets/images/p005.png
+    - assets/images/p006.png
+    - assets/images/p007.png
+    - assets/images/p008.png
+    - assets/images/p009.png
+    - assets/images/p010.png
+    - assets/images/u001.png
+    - assets/images/u002.png
+    - assets/images/u003.png
+    - assets/images/exit.png
+    - assets/images/back.png
+    - assets/images/Qr_me.jpg
+    - assets/images/bg.png
+    - assets/images/Sign in (1).png
+    - assets/images/bin.png
+    
+
+
+
+
