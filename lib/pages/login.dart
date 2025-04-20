@@ -12,10 +12,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
   String errorText = '';
   Future<void> login() async {
-    // final url = Uri.parse('http://10.0.2.2:3000/login'); //for emulator
-    final url = Uri.parse(
-      'http://172.20.10.4:3000/login',
-    ); //check ipconfig for use ipv4 and connect same internet
+    final url = Uri.parse('http://10.0.2.2:3000/login'); //for emulator
+    // final url = Uri.parse(
+    //   'http://172.20.10.4:3000/login',
+    // ); //check ipconfig for use ipv4 and connect same internet
 
     print("📤 เริ่มส่งข้อมูล login ไปยัง server");
 
