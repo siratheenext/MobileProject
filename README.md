@@ -19,7 +19,6 @@
 │   ├── raknummallshop_purchase_history.sql
 │   └── raknummallshop_reviews.sql
 
-📄 README.md
 
 
 ขั้นตอนการใช้งานหลังจาก Clone
