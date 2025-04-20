@@ -160,14 +160,3 @@ node server.js
     4. เพิ่ม `await Firebase.initializeApp()` ที่ `main.dart`
 
 ---
-
-## ✅ สิ่งที่ควรส่ง
-
-**แนบไฟล์ที่ต้องส่ง:**
-
-- โฟลเดอร์ Flutter (`lib/`, `pubspec.yaml`, etc.)
-- โฟลเดอร์ Backend (`node-backend/`)
-- โฟลเดอร์ `Database/` ที่รวมไฟล์ `.sql`
-- README.md นี้
-
-รันตาม README นี้แล้ว ✅ ใช้งานได้แน่นอน
