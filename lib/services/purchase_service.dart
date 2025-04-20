@@ -7,10 +7,10 @@ Future<void> savePurchasedItems(List items, String customerId) async {
     print(' บันทึก ${item.id} จำนวน ${item.quantity} ให้กับ $customerId');
 
     await http.post(
-      // Uri.parse('http://10.0.2.2:3000/record-purchase'),
-      Uri.parse(
-        'http://172.20.10.4:3000/record-purchase',
-      ), //check ipconfig for use ipv4 and connect same internet
+      Uri.parse('http://10.0.2.2:3000/record-purchase'),
+      // Uri.parse(
+      //   'http://172.20.10.4:3000/record-purchase',
+      // ), //check ipconfig for use ipv4 and connect same internet
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'customerid': customerId,
