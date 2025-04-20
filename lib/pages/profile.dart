@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../components/nav.dart';
 import '../models/product_model.dart';
 import '../services/purchase_service.dart';
@@ -14,6 +16,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   List<Product> purchasedProducts = [];
+  File? _profileImage;
 
   @override
   void initState() {
@@ -30,6 +33,59 @@ class _ProfilePageState extends State<ProfilePage> {
     } catch (e) {
       print("เกิดข้อผิดพลาดในการโหลดข้อมูล: $e");
     }
+  }
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        _profileImage = File(pickedFile.path);
+      });
+    }
+  }
+
+  void _showProfileInfo() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder:
+          (context) => Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'ข้อมูลโปรไฟล์',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 16),
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage:
+                      _profileImage != null
+                          ? FileImage(_profileImage!)
+                          : const AssetImage('assets/images/bg_home.png')
+                              as ImageProvider,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'Customer ID: ${widget.customerid}',
+                  style: const TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  'ชื่อผู้ใช้: (คุณสามารถแสดงชื่อจริงได้ที่นี่)',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
+          ),
+    );
   }
 
   @override
@@ -65,39 +121,49 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Column(
         children: [
           const SizedBox(height: 10),
-
-          // รูปโปรไฟล์
           Center(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                const CircleAvatar(
-                  radius: 60,
-                  backgroundImage: AssetImage('assets/images/bg_home.png'),
-                ),
-                Positioned(
-                  bottom: 0,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.6),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Text(
-                      'แก้ไขโปรไฟล์',
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+            child: GestureDetector(
+              onTap: () {
+                _showProfileInfo(); // แสดงข้อมูลโปรไฟล์
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 60,
+                    backgroundImage:
+                        _profileImage != null
+                            ? FileImage(_profileImage!)
+                            : const AssetImage('assets/images/bg_home.png')
+                                as ImageProvider,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    child: GestureDetector(
+                      onTap: () {
+                        _pickImage(); // เปลี่ยนรูปโปรไฟล์
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.6),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Text(
+                          'แก้ไขโปรไฟล์',
+                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 20),
-
-          // เคยซื้อ + Search
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
@@ -137,8 +203,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           const SizedBox(height: 20),
-
-          // แสดงรายการที่เคยซื้อ
           Expanded(
             child:
                 purchasedProducts.isEmpty
